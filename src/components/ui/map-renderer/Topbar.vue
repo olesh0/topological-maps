@@ -1,8 +1,8 @@
 <template>
   <div id="topbar">
     <div class="cursor-position">
-      <span>Lat: {{cursor.lat.toFixed(6)}}</span>
-      <span>Lon: {{cursor.lng.toFixed(6)}}</span>
+      <span>Lat: <b>{{cursor.lat.toFixed(6)}}</b></span>
+      <span>Lon: <b>{{cursor.lng.toFixed(6)}}</b></span>
     </div>
   </div>
 </template>
@@ -24,12 +24,12 @@ export default {
   display: grid;
   grid-template-columns: auto;
 
-  width: calc(100vw - 4vw);
+  width: calc(100vw - 250px);
   padding: 10px;
 
   position: fixed;
   top: 0;
-  left: 4vw;
+  left: 250px;
 
   background: var(--color-bg-dark);
   z-index: 410;
@@ -39,12 +39,16 @@ export default {
   text-align: right;
 
   .cursor-position {
-    margin-right: 20px;
     color: var(--color-font-light);
     transition: all .3s;
+    text-transform: uppercase;
 
     &:hover {
       color: var(--color-font-main);
+    }
+
+    b {
+      color: var(--color-accent-green);
     }
 
     span {
