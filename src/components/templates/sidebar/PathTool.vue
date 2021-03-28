@@ -17,6 +17,7 @@
     <div v-if="selectedPath !== null">
       <app-back-button @click="selectedPath = null">Back to all paths...</app-back-button>
 
+      <h3>Path name...</h3>
       <h4>Path points ({{points.length}})</h4>
 
       <div class="points">
@@ -95,6 +96,12 @@ export default {
 
       cursor: pointer;
     }
+  }
+
+  h3 {
+    margin: 0;
+    padding: 0;
+    font-weight: 200;
   }
 
   h4 {

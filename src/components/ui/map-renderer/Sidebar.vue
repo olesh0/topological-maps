@@ -21,12 +21,14 @@
       v-if="selectedTool && selectedTool.hasComponent"
     >
       <PathTool v-if="selectedToolKey === 'PATH_TOOL'" />
+      <CircleTool v-if="selectedToolKey === 'CIRCLE_TOOL'" />
     </div>
   </div>
 </template>
 
 <script>
 import PathTool from '@/components/templates/sidebar/PathTool.vue'
+import CircleTool from '@/components/templates/sidebar/CircleTool.vue'
 
 export default {
   computed: {
@@ -41,7 +43,7 @@ export default {
         { label: 'Bearing tool', key: 'BEARING_TOOL' },
         { label: 'Map download tool', key: 'MAP_DOWNLOAD_TOOL' },
         { label: 'Path tool', key: 'PATH_TOOL', hasComponent: true },
-        { label: 'Circle tool', key: 'CIRCLE_TOOL' },
+        { label: 'Circle tool', key: 'CIRCLE_TOOL', hasComponent: true },
         { label: 'Distance tool', key: 'DISTANCE_TOOL' },
       ],
       selectedToolKey: null,
@@ -49,6 +51,7 @@ export default {
   },
   components: {
     PathTool,
+    CircleTool,
   },
 }
 </script>
