@@ -12,8 +12,10 @@
   "dependencies": {
     "core-js": "^3.6.5",
     "draggable": "^4.2.0",
+    "geolib": "^3.3.1",
     "global-mercator": "^3.1.0",
     "leaflet": "^1.7.1",
+    "leaflet-image": "^0.4.0",
     "register-service-worker": "^1.7.1",
     "vue": "^3.0.0",
     "vue-router": "^4.0.0-0",
