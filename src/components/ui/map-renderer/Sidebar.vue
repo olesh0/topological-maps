@@ -16,12 +16,11 @@
       </div>
     </div>
 
-    <div
-      class="components"
-      v-if="selectedTool && selectedTool.hasComponent"
-    >
+    <div class="components">
       <PathTool v-if="selectedToolKey === 'PATH_TOOL'" />
       <CircleTool v-if="selectedToolKey === 'CIRCLE_TOOL'" />
+      <DistanceTool v-if="selectedToolKey === 'DISTANCE_TOOL'" />
+      <BearingTool v-if="selectedToolKey === 'BEARING_TOOL'" />
     </div>
   </div>
 </template>
@@ -29,6 +28,8 @@
 <script>
 import PathTool from '@/components/templates/sidebar/PathTool.vue'
 import CircleTool from '@/components/templates/sidebar/CircleTool.vue'
+import DistanceTool from '@/components/templates/sidebar/DistanceTool.vue'
+import BearingTool from '@/components/templates/sidebar/BearingTool.vue'
 
 export default {
   computed: {
@@ -42,8 +43,8 @@ export default {
         { label: 'Move tool', key: 'MOVE_TOOL' },
         { label: 'Bearing tool', key: 'BEARING_TOOL' },
         { label: 'Map download tool', key: 'MAP_DOWNLOAD_TOOL' },
-        { label: 'Path tool', key: 'PATH_TOOL', hasComponent: true },
-        { label: 'Circle tool', key: 'CIRCLE_TOOL', hasComponent: true },
+        { label: 'Path tool', key: 'PATH_TOOL' },
+        { label: 'Circle tool', key: 'CIRCLE_TOOL' },
         { label: 'Distance tool', key: 'DISTANCE_TOOL' },
       ],
       selectedToolKey: null,
@@ -52,6 +53,8 @@ export default {
   components: {
     PathTool,
     CircleTool,
+    DistanceTool,
+    BearingTool,
   },
 }
 </script>
@@ -95,7 +98,7 @@ export default {
 
   .components {
     margin-top: 10px;
-    padding: 20px;
+    padding: 10px;
     border-top: 1px solid var(--color-border-light);
   }
 }
