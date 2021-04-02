@@ -1,3 +1,5 @@
+import tiles from '@/assets/tiles.json'
+
 export default {
   namespaced: true,
 
@@ -7,11 +9,13 @@ export default {
       lng: 0,
     },
     map: null,
+    tile: tiles[0],
   },
 
   getters: {
     cursorPosition: ({ cursorPosition }) => cursorPosition,
     map: ({ map }) => map,
+    tile: ({ tile }) => tile,
   },
 
   mutations: {
@@ -20,6 +24,9 @@ export default {
     },
     setMap(state, map) {
       state.map = map
+    },
+    setTile(state, tile) {
+      state.tile = tile
     },
   },
 

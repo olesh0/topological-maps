@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Open topo map",
+    "url": "https://a.tile.opentopomap.org/{z}/{x}/{y}.png"
+  },
+  {
+    "name": "Positron",
+    "url": "https://maps.targomo.com/styles/positron-gl-style/rendered/{z}/{x}/{y}.png"
+  },
+  {
+    "name": "Fiord",
+    "url": "https://maps.targomo.com/styles/fiord-color-gl-style/rendered/{z}/{x}/{y}.png"
+  },
+  {
+    "name": "Dark matter (local names)",
+    "url": "https://maps.targomo.com/styles/dark-matter-gl-style/rendered/{z}/{x}/{y}.png"
+  },
+  {
+    "name": "Dark matter",
+    "url": "https://cartodb-basemaps-a.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png"
+  },
+  {
+    "name": "Dark (no labels)",
+    "url": "https://maps.targomo.com/styles/dark-matter-nolabels-gl-style/rendered/{z}/{x}/{y}.png"
+  },
+  {
+    "name": "Gray",
+    "url": "https://maps.targomo.com/styles/gray-gl-style/rendered/{z}/{x}/{y}.png"
+  }
+]

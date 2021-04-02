@@ -32,7 +32,11 @@ export default {
 
       this.isDownloading = true
 
+      console.log('preparing to download...')
+
       leafletImage(map, (_, canvas) => {
+        console.log('ready for download...')
+
         const a = document.createElement('a')
 
         a.style.display = 'none'
@@ -43,6 +47,7 @@ export default {
         a.click()
 
         this.isDownloading = false
+        console.log('done.')
       })
     },
   },

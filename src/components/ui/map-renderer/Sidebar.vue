@@ -22,6 +22,7 @@
       <DistanceTool v-if="selectedToolKey === 'DISTANCE_TOOL'" />
       <BearingTool v-if="selectedToolKey === 'BEARING_TOOL'" />
       <DownloadTool v-if="selectedToolKey === 'DOWNLOAD_TOOL'" />
+      <TilesList v-if="selectedToolKey === 'TILES_LIST'" />
     </div>
   </div>
 </template>
@@ -32,6 +33,7 @@ import CircleTool from '@/components/templates/sidebar/CircleTool.vue'
 import DistanceTool from '@/components/templates/sidebar/DistanceTool.vue'
 import BearingTool from '@/components/templates/sidebar/BearingTool.vue'
 import DownloadTool from '@/components/templates/sidebar/DownloadTool.vue'
+import TilesList from '@/components/templates/sidebar/TilesList.vue'
 
 export default {
   computed: {
@@ -48,6 +50,7 @@ export default {
         { label: 'Path tool', key: 'PATH_TOOL' },
         { label: 'Circle tool', key: 'CIRCLE_TOOL' },
         { label: 'Distance tool', key: 'DISTANCE_TOOL' },
+        { label: 'Tiles list', key: 'TILES_LIST' },
       ],
       selectedToolKey: null,
     }
@@ -58,6 +61,7 @@ export default {
     DistanceTool,
     BearingTool,
     DownloadTool,
+    TilesList,
   },
 }
 </script>
