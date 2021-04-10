@@ -36,11 +36,14 @@ export default {
 
       if (!map) throw new Error('Map is not registered...')
 
-      console.log(`registered ${eventName} handler for map`)
+      console.info(`registered ${eventName} handler for map`)
       map.on(eventName, callback)
 
-      return () => {
-        console.log('here should be cleanup...')
+      return {
+        cleanup: () => {
+          map.off(eventName, callback)
+          console.info(`Removed ${eventName} handler for map`)
+        },
       }
     },
   },

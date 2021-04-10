@@ -4262,11 +4262,6 @@ dotenv@^8.2.0:
   resolved "https://registry.npm.taobao.org/dotenv/download/dotenv-8.2.0.tgz#97e619259ada750eea3e4ea3e26bceea5424b16a"
   integrity sha1-l+YZJZradQ7qPk6j4mvO6lQksWo=
 
-draggable@^4.2.0:
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/draggable/-/draggable-4.2.0.tgz#149c0ca176df6d8b512048c8e451f499fc047b9a"
-  integrity sha1-FJwMoXbfbYtRIEjI5FH0mfwEe5o=
-
 duplexer2@^0.1.4:
   version "0.1.4"
   resolved "https://registry.npm.taobao.org/duplexer2/download/duplexer2-0.1.4.tgz#8b12dab878c0d69e3e7891051662a32fc6bddcc1"
@@ -9016,6 +9011,10 @@ pnp-webpack-plugin@^1.6.4:
   integrity sha1-yXEaxNxIpoXauvyG+Lbdn434QUk=
   dependencies:
     ts-pnp "^1.1.6"
+
+"points-of-interest@git://github.com/olesh0/points-of-interest#develop":
+  version "0.0.1"
+  resolved "git://github.com/olesh0/points-of-interest#90f30e1aad2bcf17cbb4707ade86be5daf3d18c4"
 
 portfinder@^1.0.26:
   version "1.0.28"
