@@ -8,6 +8,7 @@ export default {
       lat: 0,
       lng: 0,
     },
+    bearings: [],
     map: null,
     tile: tiles[0],
   },
@@ -16,6 +17,7 @@ export default {
     cursorPosition: ({ cursorPosition }) => cursorPosition,
     map: ({ map }) => map,
     tile: ({ tile }) => tile,
+    bearings: ({ bearings }) => bearings,
   },
 
   mutations: {
@@ -27,6 +29,9 @@ export default {
     },
     setTile(state, tile) {
       state.tile = tile
+    },
+    setBearings(state, list) {
+      state.bearings = list
     },
   },
 

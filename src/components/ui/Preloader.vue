@@ -33,7 +33,7 @@
   }
 
   .line:nth-of-type(odd) {
-    animation: 800ms preloaderAnimation 800ms infinite;
+    animation: 800ms preloaderAnimation 400ms infinite;
   }
 
   .line:nth-of-type(even) {

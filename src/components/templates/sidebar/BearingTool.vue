@@ -22,10 +22,6 @@
     </div>
 
     <div v-if="selectedBearing !== null">
-      <pre>
-        {{bearingData}}
-      </pre>
-
       <app-back-button @click="selectedBearing = null">Back to all bearings...</app-back-button>
 
       <h3>Bearing's name...</h3>
@@ -46,6 +42,21 @@
           </app-coords-point>
         </div>
       </div>
+
+      <div
+        class="info-list"
+        v-if="bearingData.distance"
+      >
+        <div class="info-item">
+          <div class="label">Distance</div>
+          <div class="value">{{(bearingData.distance / 1000).toFixed(2)}}km</div>
+        </div>
+
+        <div class="info-item">
+          <div class="label">Bearing</div>
+          <div class="value">{{computeBearingInfo(bearingData.bearing)}}</div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -55,6 +66,8 @@ import { mapGetters } from 'vuex'
 import L from 'leaflet'
 import * as geolib from 'geolib'
 
+import store from '@/store'
+
 import AppBackButton from '@/components/ui/AppBackButton.vue'
 import AppCoordsPoint from '@/components/ui/AppCoordsPoint.vue'
 
@@ -62,12 +75,12 @@ export default {
   data() {
     return {
       selectedBearing: null,
-      bearings: [],
     }
   },
   computed: {
     ...mapGetters({
       map: 'map/map',
+      bearings: 'map/bearings',
     }),
     bearingData() {
       const data = {}
@@ -86,23 +99,38 @@ export default {
     },
   },
   methods: {
+    computeBearingInfo(bearing) {
+      const reverseBearing = bearing > 180 ? bearing - 180 : bearing + 180
+
+      const actualBearing = `${bearing.toFixed(1)}°`
+      const reverseBearingString = `${reverseBearing.toFixed(1)}°`
+
+      return `${actualBearing} / ${reverseBearingString}`
+    },
     setCoords(coords = {}, index) {
       const { selectedBearing } = this
+      const { bearings } = this
 
-      this.bearings[selectedBearing].points[index].value = coords
+      bearings[selectedBearing].points[index].value = coords
+
+      store.commit('map/setBearings', bearings)
 
       const [startPoint, endPoint] = this.bearings[selectedBearing].points
       const currentLine = this.bearings[selectedBearing].line
 
       if (currentLine) {
         this.map.removeLayer(currentLine)
+        bearings[selectedBearing].line = null
+
+        store.commit('map/setBearings', bearings)
       }
 
       if (startPoint.value.lat && endPoint.value.lat) {
         const line = L.polyline([startPoint.value, endPoint.value], { color: '#d6392e' }).addTo(this.map)
         this.map.fitBounds(line.getBounds())
 
-        this.bearings[selectedBearing].line = line
+        bearings[selectedBearing].line = line
+        store.commit('map/setBearings', bearings)
       }
     },
     formatCoords(coords) {
