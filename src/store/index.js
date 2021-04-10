@@ -1,12 +1,9 @@
-import { createStore } from 'vuex';
+import { createStore } from 'vuex'
+
+import map from './modules/map'
 
 export default createStore({
-  state: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
   modules: {
+    map,
   },
-});
+})

@@ -3863,6 +3863,11 @@ cyclist@^1.0.1:
   resolved "https://registry.npm.taobao.org/cyclist/download/cyclist-1.0.1.tgz#596e9698fd0c80e12038c2b82d6eb1b35b6224d9"
   integrity sha1-WW6WmP0MgOEgOMK4LW6xs1tiJNk=
 
+d3-queue@2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/d3-queue/-/d3-queue-2.0.3.tgz#07fbda3acae5358a9c5299aaf880adf0953ed2c2"
+  integrity sha1-B/vaOsrlNYqcUpmq+ICt8JU+0sI=
+
 dashdash@^1.12.0:
   version "1.14.1"
   resolved "https://registry.npm.taobao.org/dashdash/download/dashdash-1.14.1.tgz?cache=0&sync_timestamp=1601073407658&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fdashdash%2Fdownload%2Fdashdash-1.14.1.tgz#853cfa0f7cbe2fed5de20326b8dd581035f6e2f0"
@@ -5340,6 +5345,11 @@ gensync@^1.0.0-beta.2:
   resolved "https://registry.npm.taobao.org/gensync/download/gensync-1.0.0-beta.2.tgz?cache=0&sync_timestamp=1603829716561&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fgensync%2Fdownload%2Fgensync-1.0.0-beta.2.tgz#32a6ee76c3d7f52d46b2b1ae5d93fea8580a25e0"
   integrity sha1-MqbudsPX9S1GsrGuXZP+qFgKJeA=
 
+geolib@^3.3.1:
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/geolib/-/geolib-3.3.1.tgz#f144a53b6a6858e81111ff71d137318389927611"
+  integrity sha512-sfahBXFcgELdpumDZV5b3KWiINkZxC5myAkLk067UUcTmTXaiE9SWmxMEHztn/Eus4JX6kesHxaIuZlniYgUtg==
+
 get-caller-file@^2.0.1, get-caller-file@^2.0.5:
   version "2.0.5"
   resolved "https://registry.npm.taobao.org/get-caller-file/download/get-caller-file-2.0.5.tgz#4f94412a82db32f36e3b0b9741f8a97feb031f7e"
@@ -5445,6 +5455,11 @@ glob@^7.0.3, glob@^7.1.1, glob@^7.1.2, glob@^7.1.3, glob@^7.1.4:
     minimatch "^3.0.4"
     once "^1.3.0"
     path-is-absolute "^1.0.0"
+
+global-mercator@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/global-mercator/-/global-mercator-3.1.0.tgz#011b37862f1ca858400d3e97a4e88f527148af2a"
+  integrity sha512-Ws/8nyCHDFzpDQjfr6fcbWY+yU/Oh6rk7+WXNr/pZl7O1WCktAnMZy+9wpJ2stNCqM2SWwvZoqWbIzTiFN++2A==
 
 globals@^11.1.0:
   version "11.12.0"
@@ -7268,6 +7283,18 @@ launch-editor@^2.2.1:
     chalk "^2.3.0"
     shell-quote "^1.6.1"
 
+leaflet-image@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/leaflet-image/-/leaflet-image-0.4.0.tgz#e84f22ff6288f09b9b0e2f51a4850a9f07968cc1"
+  integrity sha1-6E8i/2KI8JubDi9RpIUKnweWjME=
+  dependencies:
+    d3-queue "2.0.3"
+
+leaflet@^1.7.1:
+  version "1.7.1"
+  resolved "https://registry.yarnpkg.com/leaflet/-/leaflet-1.7.1.tgz#10d684916edfe1bf41d688a3b97127c0322a2a19"
+  integrity sha512-/xwPEBidtg69Q3HlqPdU3DnrXQOvQU/CCHA1tcDQVzOwm91YMYaILjNp7L4Eaw5Z4sOYdbBz6koWyibppd8Zqw==
+
 left-pad@^1.3.0:
   version "1.3.0"
   resolved "https://registry.npm.taobao.org/left-pad/download/left-pad-1.3.0.tgz#5b8a3a7765dfe001261dde915589e782f8c94d1e"
@@ -8984,6 +9011,10 @@ pnp-webpack-plugin@^1.6.4:
   integrity sha1-yXEaxNxIpoXauvyG+Lbdn434QUk=
   dependencies:
     ts-pnp "^1.1.6"
+
+"points-of-interest@git://github.com/olesh0/points-of-interest#develop":
+  version "0.0.1"
+  resolved "git://github.com/olesh0/points-of-interest#90f30e1aad2bcf17cbb4707ade86be5daf3d18c4"
 
 portfinder@^1.0.26:
   version "1.0.28"
