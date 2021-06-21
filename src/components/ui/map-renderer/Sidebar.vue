@@ -4,7 +4,7 @@
       <div
         v-for="(tool) in menu"
         v-bind:key="tool.key"
-        @click="selectedToolKey = tool.key"
+        @click="handleToolClick(tool)"
         class="menu-item"
         :class="{ 'selected-tool': tool.key === selectedToolKey }"
       >
@@ -24,6 +24,11 @@
       <DownloadTool v-if="selectedToolKey === 'DOWNLOAD_TOOL'" />
       <TilesList v-if="selectedToolKey === 'TILES_LIST'" />
     </div>
+
+    <CalculatorTool
+      :show="showCalculatorTool"
+      @close="showCalculatorTool = false"
+    />
   </div>
 </template>
 
@@ -34,6 +39,7 @@ import DistanceTool from '@/components/templates/sidebar/DistanceTool.vue'
 import BearingTool from '@/components/templates/sidebar/BearingTool.vue'
 import DownloadTool from '@/components/templates/sidebar/DownloadTool.vue'
 import TilesList from '@/components/templates/sidebar/TilesList.vue'
+import CalculatorTool from '@/components/templates/sidebar/CalculatorTool.vue'
 
 export default {
   computed: {
@@ -41,8 +47,16 @@ export default {
       return this.menu.find(({ key }) => this.selectedToolKey === key)
     },
   },
+  methods: {
+    handleToolClick(tool) {
+      if (tool.onClick) tool.onClick(tool)
+
+      this.selectedToolKey = tool.key
+    },
+  },
   data() {
     return {
+      showCalculatorTool: false,
       menu: [
         { label: 'Move tool', key: 'MOVE_TOOL' },
         { label: 'Bearing tool', key: 'BEARING_TOOL' },
@@ -51,6 +65,13 @@ export default {
         { label: 'Circle tool', key: 'CIRCLE_TOOL' },
         { label: 'Distance tool', key: 'DISTANCE_TOOL' },
         { label: 'Tiles list', key: 'TILES_LIST' },
+        {
+          label: 'Calculator',
+          key: 'CALCULATR_TOOL',
+          onClick: () => {
+            this.showCalculatorTool = true
+          },
+        },
       ],
       selectedToolKey: null,
     }
@@ -61,6 +82,7 @@ export default {
     DistanceTool,
     BearingTool,
     DownloadTool,
+    CalculatorTool,
     TilesList,
   },
 }

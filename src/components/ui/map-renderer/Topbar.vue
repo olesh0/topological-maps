@@ -32,7 +32,7 @@ export default {
   left: 250px;
 
   background: var(--color-bg-dark);
-  z-index: 410;
+  z-index: 405;
 
   color: #fff;
 

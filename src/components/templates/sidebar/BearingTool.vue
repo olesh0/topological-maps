@@ -75,7 +75,18 @@ export default {
   data() {
     return {
       selectedBearing: null,
+      pointerPosition: {},
     }
+  },
+  mounted() {
+    console.log(store)
+    store.dispatch('map/addMapListener', {
+      eventName: 'mousemove',
+      callback: (event) => {
+        this.pointerPosition = event.latlng
+        console.log('setting location...', event.latlng)
+      },
+    })
   },
   computed: {
     ...mapGetters({
@@ -86,14 +97,34 @@ export default {
       const data = {}
       const currentBearing = this.bearings[this.selectedBearing]
       const [startPoint, endPoint] = currentBearing.points
-      const isFullFilled = startPoint.value.lat && endPoint.value.lng
+      const isFullFilled = Boolean(
+        startPoint.value.lat && (endPoint.value.lng || this.pointerPosition.lng),
+      )
 
-      console.log(startPoint, endPoint, isFullFilled)
+      console.log({
+        startPoint,
+        endPoint,
+        pointer: this.pointerPosition,
+        isFullFilled,
+      })
 
       if (isFullFilled) {
-        data.bearing = geolib.getRhumbLineBearing(startPoint.value, endPoint.value)
-        data.distance = geolib.getDistance(startPoint.value, endPoint.value)
+        const endPointInstance = endPoint.value.lat ? endPoint.value : this.pointerPosition
+
+        console.log({ endPointInstance }, endPointInstance.lat)
+
+        data.bearing = geolib.getRhumbLineBearing(
+          startPoint.value,
+          endPointInstance,
+        )
+
+        data.distance = geolib.getDistance(
+          startPoint.value,
+          endPointInstance,
+        )
       }
+
+      console.log(data)
 
       return data
     },
@@ -127,7 +158,7 @@ export default {
 
       if (startPoint.value.lat && endPoint.value.lat) {
         const line = L.polyline([startPoint.value, endPoint.value], { color: '#d6392e' }).addTo(this.map)
-        this.map.fitBounds(line.getBounds())
+        // this.map.fitBounds(line.getBounds())
 
         bearings[selectedBearing].line = line
         store.commit('map/setBearings', bearings)

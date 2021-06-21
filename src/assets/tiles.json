@@ -4,6 +4,10 @@
     "url": "https://a.tile.opentopomap.org/{z}/{x}/{y}.png"
   },
   {
+    "name": "Open Street Map",
+    "url": "https://tile.openstreetmap.org/{z}/{x}/{y}.png"
+  },
+  {
     "name": "Positron",
     "url": "https://maps.targomo.com/styles/positron-gl-style/rendered/{z}/{x}/{y}.png"
   },
@@ -26,5 +30,9 @@
   {
     "name": "Gray",
     "url": "https://maps.targomo.com/styles/gray-gl-style/rendered/{z}/{x}/{y}.png"
+  },
+  {
+    "name": "Sky Vector",
+    "url": "https://t.skyvector.com/V7pMh4zRihflnr61/301/2103/{z}/{x}/{y}.jpg"
   }
 ]
